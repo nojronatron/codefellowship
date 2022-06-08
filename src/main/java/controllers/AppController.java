@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 import repository.AppRepository;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 public class AppController {
 
  @Autowired
- AppRepository repository;
+ AppRepository appRepository;
 
  @Autowired PasswordEncoder passwordEncoder;
 
@@ -30,6 +29,8 @@ public class AppController {
         String hashedPasswd = passwordEncoder.encode(password);
         ApplicationUser newUser = new ApplicationUser(username, hashedPasswd);
         appRepository.save(newUser);
+        authWithHttpServletRequest(username, password);
+        return new RedirectView("/");
     }
 
     // get login
@@ -43,7 +44,7 @@ public class AppController {
         } catch (ServletException se) {
             System.out.println("Error: Unable to login this user.");
             // from the codefellows class repo
-            es.printStackTrace();
+            se.printStackTrace();
         }
     }
 }
