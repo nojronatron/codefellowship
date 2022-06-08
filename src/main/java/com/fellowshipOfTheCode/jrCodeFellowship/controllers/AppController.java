@@ -1,4 +1,4 @@
-package controllers;
+package com.fellowshipOfTheCode.jrCodeFellowship.controllers;
 
 import com.fellowshipOfTheCode.jrCodeFellowship.ApplicationUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
-import repository.AppRepository;
+import com.fellowshipOfTheCode.jrCodeFellowship.repository.AppRepository;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,9 +17,11 @@ public class AppController {
  @Autowired
  AppRepository appRepository;
 
- @Autowired PasswordEncoder passwordEncoder;
+ @Autowired
+ PasswordEncoder passwordEncoder;
 
- @Autowired private HttpServletRequest request;
+ @Autowired
+ private HttpServletRequest request;
 
     // get signup
     @GetMapping("/signup") public String getSignUpPage(){ return "signup";}

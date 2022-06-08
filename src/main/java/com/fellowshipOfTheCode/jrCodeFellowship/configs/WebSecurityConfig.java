@@ -13,12 +13,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired UserDetailsSvcImplementation userDetailsSvcImplementation;
+    @Autowired
+    UserDetailsSvcImplementation userDetailsSvcImplementation;
 
     @Bean
     public PasswordEncoder passwordEncoder(){
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        return bCryptPasswordEncoder;
+//        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+//        return bCryptPasswordEncoder;
+        return new BCryptPasswordEncoder();
     }
 
     @Override public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {

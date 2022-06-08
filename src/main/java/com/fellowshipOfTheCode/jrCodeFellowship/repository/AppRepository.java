@@ -1,4 +1,4 @@
-package repository;
+package com.fellowshipOfTheCode.jrCodeFellowship.repository;
 
 import com.fellowshipOfTheCode.jrCodeFellowship.ApplicationUser;
 import org.springframework.data.jpa.repository.JpaRepository;
