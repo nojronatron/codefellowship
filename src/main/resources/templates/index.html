@@ -9,16 +9,22 @@
           crossorigin="anonymous">
     <title>Code Fellowship Home</title>
 </head>
-<body class=".bg-info.bg-gradient">
-    <h3 th:if="${username != null}" th:text="${'Current user: ' + username}"></h3>
-    <h1>Welcome to the home of Code Fellowship!</h1>
-    <p>We connect budding software developers on their coding journeys.</p>
-    <br />
+<body>
+<header class="bg-danger p-2 text-white">
+    <h1 class="text-center">Welcome to the home of The Code Fellowship!</h1>
+</header>
 
-    <p>Please <a href="/signup">register</a> and join us.</p>
+<main class="bg-light p-2 text-body">
+    <h3 th:if="${username != null}" th:text="${'Current user: ' + username}"></h3>
+
+    <p class=".fs-1 fw-bold text-center">We connect budding software developers with each other while they travel their coding journeys.</p>
+    <br/>
+
+    <p class="text-center">Please <a href="/signup">register</a> to <span class="fw-bold">join us.</span></p>
     <div th:if="${username}">
-        <p>Already registered?<a href="/signup">Sign In</a></p>
+        <p>Already registered?<a href="/login"><span class="fw-bold"> Sign In</span></a></p>
         <a href="/logout">Log Out</a>
     </div>
+</main>
 </body>
 </html>

@@ -2,19 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous">
     <title>Code FellowShip Login</title>
 </head>
 <body>
-<form action="/signup" method="POST">
-    <label for="username">Username: </label>
-    <input type="text" name="username" id="username">
-    <br/>
+<header class="bg-danger p-2 text-white">
+    <h1 class="text-center">Welcome to the home of The Code Fellowship!</h1>
+</header>
 
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password">
-    <br/>
+<main class="bg-light p-2 text-body">
 
-    <button type="submit">Click to Sign Up</button>
-</form>
+    <div class="input-group mb-3">
+
+        <form action="/signup" method="POST" legend="Please Register with the following information.">
+            <label class="form-label" for="username">Username: </label>
+            <input class="form-control" type="text" name="username" id="username">
+
+            <label class="form-label" for="password">Password: </label>
+            <input class="form-control" type="password" name="password" id="password">
+
+            <label class="form-label" for="firstname">First Name: </label>
+            <input class="form-control" type="text" name="firstname" id="firstname">
+
+            <label class="form-label" for="lastname">Last Name: </label>
+            <input class="form-control" type="text" name="lastname" id="lastname">
+
+            <label class="form-label" for="dateofbirth">Date of Birth</label>
+            <input class="form-control" type="date" name="dateofbirth" id="dateofbirth">
+
+            <label class="form-label" for="bio">Your personal introduction: </label>
+            <textarea class="form-control" rows="4" type="text" name="bio" id="bio"></textarea>
+
+            <button class="input-group mb-3" type="submit">Click to Sign Up</button>
+
+        </form>
+
+    </div>
+
+</main>
 </body>
 </html>
