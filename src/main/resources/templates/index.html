@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Code Fellowship Home</title>
+</head>
+<body>
+    <h3 th:if="${username != null}" th:text="${'Current user: ' + username}"></h3>
+    <h1>Welcome to the home of Code Fellowship!</h1>
+    <p>We connect budding software developers on their coding journeys!</p>
+    <a th:if="!${username}" href="/login">Log in</a>
+    <br />
+
+    <p>Already registered?<a th:if="!${username}" href="/signup">Sign In</a></p>
+    <a th:if="${username}" href="/logout">Log Out</a>
+</body>
+</html>
