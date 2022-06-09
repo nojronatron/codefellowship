@@ -15,16 +15,33 @@
 </header>
 
 <main class="bg-light p-2 text-body">
-    <h3 th:if="${username != null}" th:text="${'Current user: ' + username}"></h3>
+    <h3 class=".fs-1 fw-bold text-center">
+        We connect budding software developers with each other as they travel their coding journeys.</h3>
 
-    <p class=".fs-1 fw-bold text-center">We connect budding software developers with each other while they travel their coding journeys.</p>
-    <br/>
+    <div class="card" style="width:200px" th:if="${appuser != null}">
+        <img src="https://place-hold.it/100x100/22/ff.png&text=user&bold&fontsize=12"
+             class="card-img-top"
+             alt="placeholder image for the currently logged in user."
+            >
+        <div class="card-body">
+            <h4>Current user: <span th:text="${appuser.firstName}"></span>
+                <span th:text="${appuser.lastName}"></span>
+            </h4>
 
-    <p class="text-center">Please <a href="/signup">register</a> to <span class="fw-bold">join us.</span></p>
-    <div th:if="${username}">
-        <p>Already registered?<a href="/login"><span class="fw-bold"> Sign In</span></a></p>
-        <a href="/logout">Log Out</a>
+            <p>Birthdate: <span th:text="${appuser.dateOfBirth}"></span></p>
+            <br />
+            <p>About You:</p>
+            <p class="fst-italic" th:text="${appuser.bio}"></p>
+            <a href="/logout">Log Out</a>
+        </div>
     </div>
+
+
+    <div th:if="${appuser == null}">
+        <p class="text-center">Please <a href="/signup">register</a> to <span class="fw-bold">join us</span>.</p>
+        <p class="text-center">Already registered?<a href="/login"><span class="fw-bold"> Sign In</span></a></p>
+    </div>
+
 </main>
 </body>
 </html>

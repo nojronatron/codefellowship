@@ -10,6 +10,8 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.fellowshipOfTheCode.jrCodeFellowship.repository.AppRepository;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Controller
 public class AppController {
@@ -27,11 +29,28 @@ public class AppController {
     @GetMapping("/signup") public String getSignUpPage(){ return "signup";}
 
     // post signup
-    @PostMapping("/signup") public RedirectView createUser(String username, String password) {
+    @PostMapping("/signup") public RedirectView createUser(
+            String username,
+            String password,
+            String firstname,
+            String lastname,
+            String dateofbirth,
+            String bio) {
         String hashedPasswd = passwordEncoder.encode(password);
-        ApplicationUser newUser = new ApplicationUser(username, hashedPasswd);
+
+        // https://www.baeldung.com/java-string-to-date
+        LocalDate localDataDOB = LocalDate.parse(dateofbirth);
+
+        ApplicationUser newUser = new ApplicationUser(
+                username,
+                hashedPasswd,
+                firstname,
+                lastname,
+                localDataDOB,
+                bio);
         appRepository.save(newUser);
         authWithHttpServletRequest(username, password);
+
         return new RedirectView("/");
     }
 
