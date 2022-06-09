@@ -42,15 +42,15 @@ spring.jpa.generate-ddl=true
 - [X] User can create an ApplicationUser on the signup page
 - [X] Controller is 'Autowired' to manage password encoding
 - [X] Follow steps using the [Spring Security Cheat Sheet](https://codefellows.github.io/code-401-java-guide/curriculum/SpringSecurityCheatSheet.html)
-- [ ] Site should have a homepage as "slash route" aka "/" that contains basic information about the site
-- [ ] Slash route should have links to login and signup
-- [ ] Slash route should have link to logout if user is already logged in
-- [ ] User is redirected to home/login page when they logout
-- [ ] When user is logged in the app should display the username on every page
-- [ ] Ensure homepage, login, and registration routes are accessible to non-logged-in users
-- [ ] Site should be well styled and attractive
-- [ ] Site should use templates to display information
-- [ ] Ensure user registration also logs users into your app automatically
+- [X] Site should have a homepage as "slash route" aka "/" that contains basic information about the site
+- [X] Slash route should have links to login and signup
+- [X] Slash route should have link to logout if user is already logged in
+- [X] User is redirected to home/login page when they logout
+- [X] When user is logged in the app should display the username on every page
+- [X] Ensure homepage, login, and registration routes are accessible to non-logged-in users
+- [X] Site should be well styled and attractive
+- [X] Site should use templates to display information
+- [X] Ensure user registration also logs users into your app automatically
 
 ## Kudos and Credits
 
