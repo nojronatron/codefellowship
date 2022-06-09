@@ -113,4 +113,6 @@ public class ApplicationUser implements UserDetails {
     public void setBio(String bio) {
         this.bio = bio;
     }
+
+    public Long getId() { return this.id; }
 }

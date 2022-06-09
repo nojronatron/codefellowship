@@ -30,9 +30,41 @@ spring.datasource.username=your_postgres_admin_username
 spring.datasource.password=your_postgres_admin_password
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.generate-ddl=true
+spring.mvc.hiddenmethod.filter.enabled=true
+server.error.whitelabel.enabled=false
 ```
+*Note*: This application.properties template code has been updated to the requirements in [Wednesday](#wednesday)'s project work.
 
 ## Feature Tasks
+
+Current state: I am in the process of building this application to the standards of Lab 17.
+
+'X' or checked list items below are completed but may not have been tested, with the exception of "default profile picture" which was implemented and tested yesterday.
+
+'~' or tilde list items are partially implemented.
+
+The WebApp will build and run without error.
+
+There will be little (if any) live indication that today's feature implementations are enabled.
+
+### Wednesday
+
+- [ ] Allow users to log in to CodeFellowship, view user profiles, and create posts.
+- [ ] Upon logging in, users should be taken to a /myprofile route that displays their information.
+- [X] This should include a default profile picture, which is the same for every user, and their basic information from ApplicationUser.
+- [~] The site should have a page which allows viewing the data about a single ApplicationUser, at a route like /users/{id}.
+- [X] This should include a default profile picture, which is the same for every user, and their basic information.
+- [ ] Continue to ensure that your homepage, login, and registration routes are accessible to non-logged in users. All other routes should be limited to logged-in users.
+- [X] Add a Post entity to your app.
+- [X] A Post has a body and a createdAt timestamp.
+- [ ] A logged-in user should be able to create a Post, and a post should belong to the user that created it.
+      Hint: This is a relationship between two pieces of data
+
+- [ ] A user’s posts should be visible on their profile page.
+- [ ] The site should use reusable templates for its information. (At a minimum, it should have one Thymeleaf fragment that is used on multiple pages.)
+- [~] The site should have a non-whitelabel error handling page that lets the user know, at minimum, the error code and a brief message about what went wrong.
+
+### Tuesday
 
 - [X] build a webapp that allows users to log into CodeFellowship
 - [X] single login page
