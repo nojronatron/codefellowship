@@ -2,16 +2,46 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous">
     <title>Code Fellowship Home</title>
 </head>
 <body>
-    <h3 th:if="${username != null}" th:text="${'Current user: ' + username}"></h3>
-    <h1>Welcome to the home of Code Fellowship!</h1>
-    <p>We connect budding software developers on their coding journeys!</p>
-    <a th:if="!${username}" href="/login">Log in</a>
-    <br />
+<header class="bg-danger p-2 text-white">
+    <h1 class="text-center">Welcome to the home of The Code Fellowship!</h1>
+</header>
 
-    <p>Already registered?<a th:if="!${username}" href="/signup">Sign In</a></p>
-    <a th:if="${username}" href="/logout">Log Out</a>
+<main class="bg-light p-2 text-body">
+    <h3 class=".fs-1 fw-bold text-center">
+        We connect budding software developers with each other as they travel their coding journeys.</h3>
+
+    <div class="card" style="width:200px" th:if="${appuser != null}">
+        <img src="https://place-hold.it/100x100/22/ff.png&text=user&bold&fontsize=12"
+             class="card-img-top"
+             alt="placeholder image for the currently logged in user."
+            >
+        <div class="card-body">
+            <h4>Current user: <span th:text="${appuser.firstName}"></span>
+                <span th:text="${appuser.lastName}"></span>
+            </h4>
+
+            <p>Birthdate: <span th:text="${appuser.dateOfBirth}"></span></p>
+            <br />
+            <p>About You:</p>
+            <p class="fst-italic" th:text="${appuser.bio}"></p>
+            <a href="/logout">Log Out</a>
+        </div>
+    </div>
+
+
+    <div th:if="${appuser == null}">
+        <p class="text-center">Please <a href="/signup">register</a> to <span class="fw-bold">join us</span>.</p>
+        <p class="text-center">Already registered?<a href="/login"><span class="fw-bold"> Sign In</span></a></p>
+    </div>
+
+</main>
 </body>
 </html>

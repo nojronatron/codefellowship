@@ -1,4 +1,4 @@
-package controllers;
+package com.fellowshipOfTheCode.jrCodeFellowship.controllers;
 
 import com.fellowshipOfTheCode.jrCodeFellowship.ApplicationUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
-import repository.AppRepository;
+import com.fellowshipOfTheCode.jrCodeFellowship.repository.AppRepository;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Controller
 public class AppController {
@@ -17,19 +19,38 @@ public class AppController {
  @Autowired
  AppRepository appRepository;
 
- @Autowired PasswordEncoder passwordEncoder;
+ @Autowired
+ PasswordEncoder passwordEncoder;
 
- @Autowired private HttpServletRequest request;
+ @Autowired
+ private HttpServletRequest request;
 
     // get signup
     @GetMapping("/signup") public String getSignUpPage(){ return "signup";}
 
     // post signup
-    @PostMapping("/signup") public RedirectView createUser(String username, String password) {
+    @PostMapping("/signup") public RedirectView createUser(
+            String username,
+            String password,
+            String firstname,
+            String lastname,
+            String dateofbirth,
+            String bio) {
         String hashedPasswd = passwordEncoder.encode(password);
-        ApplicationUser newUser = new ApplicationUser(username, hashedPasswd);
+
+        // https://www.baeldung.com/java-string-to-date
+        LocalDate localDataDOB = LocalDate.parse(dateofbirth);
+
+        ApplicationUser newUser = new ApplicationUser(
+                username,
+                hashedPasswd,
+                firstname,
+                lastname,
+                localDataDOB,
+                bio);
         appRepository.save(newUser);
         authWithHttpServletRequest(username, password);
+
         return new RedirectView("/");
     }
 
