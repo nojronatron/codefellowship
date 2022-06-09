@@ -30,7 +30,10 @@ spring.datasource.username=your_postgres_admin_username
 spring.datasource.password=your_postgres_admin_password
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.generate-ddl=true
+spring.mvc.hiddenmethod.filter.enabled=true
+server.error.whitelabel.enabled=false
 ```
+*Note*: This application.properties template code has been updated to the requirements in [Wednesday](#wednesday)'s project work.
 
 ## Feature Tasks
 
